@@ -2,7 +2,7 @@ import Link from "next/link";
 import logoImg from "@/assets/logo.png";
 import Image from "next/image";
 
-export default function MainHeader() {
+export default function MealsHeader() {
   return (
     <header className="flex items-center justify-between px-4 py-8 md:px-[10%]">
       <Link href="/" className="flex items-center justify-center gap-8 no-underline text-2xl font-bold uppercase tracking-[0.15rem] text-[#595959]">
@@ -17,11 +17,14 @@ export default function MainHeader() {
 
       <nav className="">
         <ul className="flex list-none m-0 p-0 gap-6 text-xl">
-          <li className="">
-            <Link href="/meals">Browse Meals</Link>
+          <li>
+            <Link href="/meals">Meals</Link>
           </li>
-          <li className="">
-            <Link href="/community">Foodies Community</Link>
+          <li>
+            <Link href="/community">Community</Link>
+          </li>
+          <li>
+            <Link href="/tailwind">Tailwind</Link>
           </li>
         </ul>
       </nav>
