@@ -1,6 +1,7 @@
 import Link from "next/link";
 import logoImg from "@/assets/logo.png";
 import Image from "next/image";
+import NavLink from "./nav-link";
 
 export default function MealsHeader() {
   return (
@@ -18,13 +19,13 @@ export default function MealsHeader() {
       <nav className="">
         <ul className="flex list-none m-0 p-0 gap-6 text-xl">
           <li>
-            <Link href="/meals">Meals</Link>
+            <NavLink href="/meals">Meals</NavLink>
           </li>
           <li>
-            <Link href="/community">Community</Link>
+            <NavLink href="/community">Community</NavLink>
           </li>
           <li>
-            <Link href="/tailwind">Tailwind</Link>
+            <NavLink href="/tailwind">Tailwind</NavLink>
           </li>
         </ul>
       </nav>
