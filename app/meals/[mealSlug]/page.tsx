@@ -1,8 +1,12 @@
+import { getMealBySlug } from "@/lib/meals/queries";
+import { notFound } from "next/navigation";
 
-export default function MealDetailsPage() {
-  return (
-    <main>
-      <h1>This is a meal details dynamic page!</h1>
-    </main>
-  );
+export default function MealDetailsPage({ params }: { params: { slug: string } }) {
+  const meal = getMealBySlug(params.slug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return <div>{meal.title}</div>;
 }

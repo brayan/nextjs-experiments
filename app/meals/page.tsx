@@ -1,10 +1,14 @@
 import MealsGrid from "@/components/meals-grid";
 import { getMeals } from "@/lib/meals/queries";
 import Link from "next/link";
+import { Suspense } from "react";
+
+function Meals() {
+  const meals = getMeals();
+  return <MealsGrid meals={meals} />;
+}
 
 export default async function MealsPage() {
-  const meals = getMeals();
-
   return (
     <>
       <header className="mx-auto mt-12 mb-20 w-[90%] max-w-300 text-2xl text-[#ddd6cb]">
@@ -30,7 +34,9 @@ export default async function MealsPage() {
       </header>
 
       <main className="mx-auto w-[90%] max-w-300">
-        <MealsGrid meals={meals} />
+        <Suspense fallback={<p className="text-center animate-loading">Loading Meals...</p>}>
+          <Meals />
+        </Suspense>
       </main>
     </>
   );
