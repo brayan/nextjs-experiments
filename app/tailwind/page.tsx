@@ -9,6 +9,7 @@ export default function TailwindPage() {
       <p><Link href="/tailwind/03-container-spacing">03 - Container & Spacing</Link></p>
       <p><Link href="/tailwind/04-typography">04 - Typography</Link></p>
       <p><Link href="/tailwind/05-sizing">05 - Sizing</Link></p>
+      <p><Link href="/tailwind/06-layout-position">06 - Layout & Position</Link></p>
     </main>
   );
 }
