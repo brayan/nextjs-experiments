@@ -1,3 +1,4 @@
+import ImagePicker from "@/components/image-picker";
 
 export default function ShareMealPage() {
   const labelClass =
@@ -74,7 +75,7 @@ export default function ShareMealPage() {
             />
           </p>
 
-          IMAGE PICKER
+          <ImagePicker label="This is my label" name="This is my name"/>
 
           <p className="text-right">
             <button type="submit" className={buttonClass}>
