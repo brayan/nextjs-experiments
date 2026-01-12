@@ -1,5 +1,7 @@
 import sql from "better-sqlite3";
 import { MealDetail, MealSummary } from "./types";
+import slugify from "slugify";
+import xss from "xss";
 
 const db = sql('meals.db');
 
@@ -21,4 +23,11 @@ export function getMealBySlug(slug: string): MealDetail | null {
   ).get(slug) as MealDetail | undefined;
 
   return row ?? null;
+}
+
+export function saveMeal(meal: MealDetail) {
+  meal.slug = slugify(meal.title, { lower: true });
+  meal.instructions = xss(meal.instructions);
+  
+  // TODO: insert the new meal
 }

@@ -1,8 +1,8 @@
 import ImagePicker from "@/components/image-picker";
+import { shareMeal } from "@/lib/meals/actions";
 
 export default function ShareMealPage() {
-  const labelClass =
-    "mb-2 block text-base font-bold font-montserrat uppercase text-[#b3aea5]";
+  const labelClass = "mb-2 block text-base font-bold font-montserrat uppercase text-[#b3aea5]";
 
   const fieldClass =
     "block w-full rounded border border-[#454952] bg-[#1c2027] px-4 py-2 " +
@@ -31,7 +31,7 @@ export default function ShareMealPage() {
       </header>
 
       <main className="mx-auto my-12 w-[90%] max-w-300 text-white">
-        <form className="max-w-200">
+        <form className="max-w-200" action={shareMeal}>
           <div className="flex gap-4">
             <p className="w-full">
               <label htmlFor="name" className={labelClass}>
@@ -75,7 +75,7 @@ export default function ShareMealPage() {
             />
           </p>
 
-          <ImagePicker label="This is my label" name="This is my name"/>
+          <ImagePicker label="Your image" name="image"/>
 
           <p className="text-right">
             <button type="submit" className={buttonClass}>

@@ -1,6 +1,6 @@
 
 export type MealSummary = {
-  id: number;
+  id: number | null;
   title: string;
   slug: string;
   image: string;
@@ -10,5 +10,14 @@ export type MealSummary = {
 
 export type MealDetail = MealSummary & {
   instructions: string;
+  creator_email: string;
+};
+
+export type NewMealInput = {
+  title: string;
+  summary: string;
+  instructions: string;
+  image: File;
+  creator: string;
   creator_email: string;
 };
