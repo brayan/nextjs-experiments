@@ -10,6 +10,7 @@ export default function TailwindPage() {
       <p><Link href="/tailwind/04-typography">04 - Typography</Link></p>
       <p><Link href="/tailwind/05-sizing">05 - Sizing</Link></p>
       <p><Link href="/tailwind/06-layout-position">06 - Layout & Position</Link></p>
+      <p><Link href="/tailwind/07-backgrounds-shadows">07 - Backgrounds & Shadows</Link></p>
     </main>
   );
 }
