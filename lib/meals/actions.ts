@@ -1,5 +1,7 @@
 'use server';
 
+import { redirect } from "next/navigation";
+import { saveMeal } from "./queries";
 import { NewMealInput } from "./types";
 
 export async function shareMeal(formData: FormData) {
@@ -10,7 +12,6 @@ export async function shareMeal(formData: FormData) {
   const creator = formData.get("name");
   const creator_email = formData.get("email");
 
-  // Validate types
   if (
     typeof title !== "string" ||
     typeof summary !== "string" ||
@@ -33,4 +34,7 @@ export async function shareMeal(formData: FormData) {
   };
 
   console.log(newMeal);
+  await saveMeal(newMeal);
+
+  redirect('/meals');
 }

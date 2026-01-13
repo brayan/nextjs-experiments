@@ -1,7 +1,9 @@
 import sql from "better-sqlite3";
-import { MealDetail, MealSummary } from "./types";
+import { MealDetail, MealSummary, NewMealInput } from "./types";
 import slugify from "slugify";
 import xss from "xss";
+import fs from 'node:fs';
+import path from "node:path";
 
 const db = sql('meals.db');
 
@@ -25,9 +27,38 @@ export function getMealBySlug(slug: string): MealDetail | null {
   return row ?? null;
 }
 
-export function saveMeal(meal: MealDetail) {
-  meal.slug = slugify(meal.title, { lower: true });
-  meal.instructions = xss(meal.instructions);
-  
-  // TODO: insert the new meal
+export async function saveMeal(meal: NewMealInput) {
+  const slug = slugify(meal.title, { lower: true });
+  const safeInstructions = xss(meal.instructions);
+
+  const originalName = meal?.image?.name ?? "";
+  const extension = originalName.includes(".")
+    ? originalName.split('.').pop()
+    : "jpg";
+
+  const fileName = `${slug}.${extension}`;
+  const publicDir = path.join(process.cwd(), "public", "images");
+  const filePath = path.join(publicDir, fileName);
+
+  await fs.promises.mkdir(publicDir, { recursive: true });
+
+  const bufferedImage = Buffer.from(await meal.image.arrayBuffer())
+  await fs.promises.writeFile(filePath, bufferedImage);
+
+  const imagePathForDb = `/images/${fileName}`;
+
+  db.prepare(
+    `INSERT INTO meals
+      (title, summary, instructions, creator, creator_email, image, slug)
+     VALUES
+      (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)`
+  ).run({
+    title: meal.title,
+    summary: meal.summary,
+    instructions: safeInstructions,
+    creator: meal.creator,
+    creator_email: meal.creator_email,
+    image: imagePathForDb,
+    slug,
+  });
 }
