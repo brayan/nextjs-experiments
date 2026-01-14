@@ -1,4 +1,5 @@
 import ImagePicker from "@/components/image-picker";
+import MealsFormSubmit from "@/components/meals-form-submit";
 import { shareMeal } from "@/lib/meals/actions";
 
 export default function ShareMealPage() {
@@ -8,15 +9,6 @@ export default function ShareMealPage() {
     "block w-full rounded border border-[#454952] bg-[#1c2027] px-4 py-2 " +
     "text-xl font-montserrat text-[#ddd6cb] " +
     "focus:outline-none focus:ring-2 focus:ring-[#f99f2a] focus:bg-[#1f252d]";
-
-  const buttonClass =
-    "cursor-pointer rounded-sm px-8 py-3 text-xl font-montserrat text-white " +
-    "shadow-[0_2px_5px_rgba(0,0,0,0.3)] " +
-    "bg-gradient-to-r from-[#f9572a] to-[#ff9b05] " +
-    "hover:from-[#fd4715] hover:to-[#f9b241] focus:from-[#fd4715] focus:to-[#f9b241] " +
-    "disabled:cursor-not-allowed disabled:bg-[#ccc] disabled:text-[#979797] " +
-    "disabled:hover:from-[#ccc] disabled:hover:to-[#ccc] " +
-    "disabled:focus:from-[#ccc] disabled:focus:to-[#ccc]";
 
   return (
     <>
@@ -78,9 +70,7 @@ export default function ShareMealPage() {
           <ImagePicker label="Your image" name="image"/>
 
           <p className="text-right">
-            <button type="submit" className={buttonClass}>
-              Share Meal
-            </button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
