@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { saveMeal } from "./queries";
 import { NewMealInput } from "./types";
+import { revalidatePath } from "next/cache";
 
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png"]);
 
@@ -18,6 +19,9 @@ export async function shareMeal(formData: FormData) {
 
   console.log(newMeal);
   await saveMeal(newMeal);
+
+  // meals/page.tsx will be revalidated by default
+  revalidatePath('/meals'); 
 
   redirect('/meals');
 }

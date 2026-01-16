@@ -1,7 +1,13 @@
 import MealsGrid from "@/components/meals-grid";
 import { getMeals } from "@/lib/meals/queries";
+import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by our community",
+};
 
 function Meals() {
   const meals = getMeals();
