@@ -13,7 +13,7 @@ export default function MealsHeader() {
           alt="A plate with food on it"
           priority
         />
-        Next.js Expetiments
+        Next.js Experiments
       </Link>
 
       <nav className="">
