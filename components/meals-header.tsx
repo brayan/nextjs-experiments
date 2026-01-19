@@ -13,7 +13,7 @@ export default function MealsHeader() {
           alt="A plate with food on it"
           priority
         />
-        NextLevel Food
+        Next.js Experiments
       </Link>
 
       <nav className="">
@@ -26,6 +26,9 @@ export default function MealsHeader() {
           </li>
           <li>
             <NavLink href="/tailwind">Tailwind</NavLink>
+          </li>
+          <li>
+            <NavLink href="/news">News</NavLink>
           </li>
         </ul>
       </nav>
