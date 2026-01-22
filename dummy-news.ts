@@ -1,4 +1,6 @@
-export const DUMMY_NEWS = [
+import { NewsItem } from "./lib/news/types";
+
+export const DUMMY_NEWS: NewsItem[] = [
   {
     id: 'n1',
     slug: 'will-ai-replace-humans',
