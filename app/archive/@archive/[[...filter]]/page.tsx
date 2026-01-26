@@ -39,6 +39,22 @@ export default async function FilteredNewsPage({
   const baseHref = selectedYear ? `/archive/${selectedYear}` : "/archive";
   const filterTitle = selectedYear ? "Filter by month" : "Filter by year";
 
+  if (selectedYear) {
+    const availableYears = getAvailableNewsYears();
+    if (!availableYears.includes(+selectedYear)) {
+      throw new Error("Invalid filter.");
+    }
+
+    if (selectedMonth) {
+      const availableMonths = getAvailableNewsMonths(selectedYear);
+      if (!availableMonths.includes(+selectedMonth)) {
+        throw new Error("Invalid filter.");
+      }
+    }
+  } else if (selectedMonth) {
+    throw new Error("Invalid filter.");
+  }
+
   return (
     <>
       <header className="rounded-xl border border-(--color-border) bg-(--color-surface) p-6 shadow-(--shadow-card)">

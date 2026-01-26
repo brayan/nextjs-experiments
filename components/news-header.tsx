@@ -18,6 +18,12 @@ export default function NewsHeader() {
             >
               News
             </Link>
+            <Link
+              href="/archive"
+              className="rounded px-4 py-2 text-[#e5e5e1] no-underline hover:bg-[#bcbcb7] hover:text-[#181817]"
+            >
+              Archive
+            </Link>
           </li>
         </ul>
       </nav>
