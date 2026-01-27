@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 type ImagePickerProps = {
@@ -49,10 +50,13 @@ export default function ImagePicker({ label, name }: ImagePickerProps) {
           {!pickedImage ? (
             <p className="m-0 p-4">No image picked yet.</p>
           ) : (
-            <img
+            <Image
               src={pickedImage}
               alt="Selected image preview"
-              className="absolute inset-0 h-full w-full object-cover"
+              fill
+              sizes="160px"
+              unoptimized
+              className="object-cover"
             />
           )}
         </div>

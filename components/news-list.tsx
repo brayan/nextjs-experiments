@@ -1,4 +1,5 @@
 import type { NewsItem } from "@/lib/news/types";
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = { news: NewsItem[] };
@@ -20,11 +21,15 @@ export default function NewsList({ news }: Props) {
             href={`/news/${item.slug}`}
             className="flex flex-col overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-foreground)] no-underline shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:bg-[var(--color-surface-muted)]"
           >
-            <img
-              src={`/images/news/${item.image}`}
-              alt={item.title}
-              className="h-56 w-full object-cover"
-            />
+            <div className="relative h-56 w-full">
+              <Image
+                src={`/images/news/${item.image}`}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 20rem"
+                className="object-cover"
+              />
+            </div>
             <div className="flex flex-col gap-1 p-4">
               <span className="text-lg font-semibold">{item.title}</span>
               <time className="text-sm text-[var(--color-muted)]" dateTime={item.date}>

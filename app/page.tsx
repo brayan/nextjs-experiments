@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import Header from "@/components/header";
 import MealsHome from "@/components/meals-home";
 
 // this is a server component
