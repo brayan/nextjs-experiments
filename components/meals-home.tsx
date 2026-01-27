@@ -1,5 +1,4 @@
 import Link from "next/link";
-import MealsHeader from "./meals-header";
 import ImageSlideshow from "./images/image-slideshow";
 
 const linksStyle = "mt-4 inline-block rounded-lg px-4 py-2 font-bold no-underline text-white bg-gradient-to-r from-[#f9572a] to-[#ff9b05] hover:from-[#fd4715] hover:to-[#f9b241] active:from-[#fd4715] active:to-[#f9b241]"

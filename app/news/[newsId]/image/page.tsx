@@ -1,3 +1,4 @@
+import NewsImage from "@/components/news-image";
 import { DUMMY_NEWS } from "@/dummy-news";
 import { notFound } from "next/navigation";
 
@@ -10,8 +11,12 @@ export default async function NewsImagePage({ params }: { params: { newsId: stri
   }
 
   return (
-    <div className="fullscreen-image">
-      <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
-    </div>
+    <NewsImage
+      src={`/images/news/${newsItem.image}`}
+      alt={newsItem.title}
+      wrapperClassName="min-h-screen w-full p-6 bg-black/5 backdrop-blur-sm"
+      sizes="(max-width: 768px) 100vw, 90vw"
+      priority
+    />
   );
 }
