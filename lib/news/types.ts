@@ -7,5 +7,14 @@ export type NewsItem = {
   content: string;
 }
 
+export type NewsRow = {
+  id: number;
+  slug: string;
+  title: string;
+  image: string;
+  date: string;
+  content: string;
+}
+
 export type Year = number;
 export type Month = number;
